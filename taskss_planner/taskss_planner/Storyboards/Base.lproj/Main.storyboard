@@ -61,6 +61,7 @@
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
                                         <connections>
+                                            <action selector="check_today_tasks:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Vi4-bx-IOK"/>
                                             <segue destination="uhV-kF-Rc8" kind="show" id="epq-Wo-Buv"/>
                                         </connections>
                                     </button>
@@ -97,15 +98,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="4fp-RC-DH1"/>
+                    <connections>
+                        <outlet property="check_tasks" destination="lxp-0P-8HK" id="Ode-RU-Vez"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="115.84821428571428"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Today Tasks-->
         <scene sceneID="OAg-od-t6h">
             <objects>
-                <viewController id="5Pw-Ur-vuZ" sceneMemberID="viewController">
+                <viewController id="5Pw-Ur-vuZ" customClass="ViewControllerTodayTasks" customModule="taskss_planner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VLB-vj-LfY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,10 +161,10 @@
             </objects>
             <point key="canvasLocation" x="2192.753623188406" y="-88.392857142857139"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller All Tasks-->
         <scene sceneID="NSG-ge-zRK">
             <objects>
-                <viewController id="uhV-kF-Rc8" sceneMemberID="viewController">
+                <viewController id="uhV-kF-Rc8" customClass="ViewControllerAllTasks" customModule="taskss_planner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nJv-fa-MN9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -205,10 +209,10 @@
             </objects>
             <point key="canvasLocation" x="2211.594202898551" y="617.41071428571422"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller Add Task-->
         <scene sceneID="ffR-ya-ojt">
             <objects>
-                <viewController id="kz1-dy-18z" sceneMemberID="viewController">
+                <viewController id="kz1-dy-18z" customClass="ViewControllerAddTask" customModule="taskss_planner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UTh-P0-nHF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -222,6 +226,9 @@
                                 <state key="normal" title="Add the new task">
                                     <color key="titleColor" red="0.93215488589999995" green="1" blue="0.99835414919999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="addTask:" destination="kz1-dy-18z" eventType="touchUpInside" id="r4a-xh-KZb"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting a new task" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cew-zG-8qI">
                                 <rect key="frame" x="20" y="124" width="279" height="30"/>
@@ -248,6 +255,9 @@
                                                 <rect key="frame" x="92" y="0.0" width="302" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="task_name:" destination="kz1-dy-18z" eventType="editingDidEnd" id="zOo-cd-BHK"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -307,6 +317,15 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xq2-vM-SCV"/>
+                    <connections>
+                        <outlet property="add_task_button" destination="E7j-iW-ztH" id="V9e-Er-yWm"/>
+                        <outlet property="importance_label" destination="FRD-ie-Nvf" id="KMr-fh-lPe"/>
+                        <outlet property="importance_picker" destination="ika-Dq-U50" id="NE8-f8-Fj3"/>
+                        <outlet property="task_name_field" destination="ood-xq-LM0" id="Lcd-dy-dsc"/>
+                        <outlet property="task_name_label" destination="UP6-4z-YoI" id="FDb-n3-mQD"/>
+                        <outlet property="to_do_before" destination="gMl-2O-2DH" id="s2J-S5-yDm"/>
+                        <outlet property="to_do_before_label" destination="q36-yv-6u3" id="PV3-5H-gPJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="drU-uH-dgE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -332,7 +351,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sFP-6N-epd"/>
+        <segue reference="ohS-59-RKq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <namedColor name="AccentColor">
