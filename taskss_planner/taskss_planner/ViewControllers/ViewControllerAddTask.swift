@@ -8,11 +8,28 @@
 import UIKit
 import CoreData
 
-class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate{
     
     let identifiant = "itemCell"
     
+    var task_name: String? = "A task"
+    
     let importance: [String] = ["low", "medium", "high"]
+    var selected_importance: String = "low"
+    
+    var selected_date: Date = Date.init()
+    
+    var managedObjectContext:NSManagedObjectContext?
+    var managedObjects:[NSManagedObject] = []
+    
+    @IBOutlet weak var task_name_label: UILabel!
+    @IBOutlet weak var task_name_field: UITextField!
+    @IBOutlet weak var to_do_before_label: UILabel!
+    @IBOutlet weak var to_do_before: UIDatePicker!
+    @IBOutlet weak var importance_label: UILabel!
+    @IBOutlet weak var importance_picker: UIPickerView!
+    @IBOutlet weak var add_task_button: UIButton!
+    
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -25,27 +42,26 @@ class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerV
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return importance[row]
     }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        selected_importance = importance[row]
+    }
 
 
-
-    @IBOutlet weak var task_name_label: UILabel!
-    @IBOutlet weak var task_name_field: UITextField!
-    @IBOutlet weak var to_do_before_label: UILabel!
-    @IBOutlet weak var to_do_before: UIDatePicker!
-    @IBOutlet weak var importance_label: UILabel!
-    @IBOutlet weak var importance_picker: UIPickerView!
-    @IBOutlet weak var add_task_button: UIButton!
     
-    var managedObjectContext:NSManagedObjectContext?
-    var managedObjects:[NSManagedObject] = []
+    @IBAction func datePickerEditingEnded(_ sender: UIDatePicker) {
+        selected_date = to_do_before.date
+    }
     
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        //task_name = task_name_field.text!
+        task_name_field.resignFirstResponder()
+        //self.view.endEditing(true)
+        return true
+    }
     
     @IBAction func addTask(_ sender: UIButton) {
         
-        var selected_name: String! = task_name_field.text
-        var selected_importance: String! = importance[importance_picker.selectedRow(inComponent: 0)]
-        print(selected_importance!)
         
         
     }
@@ -56,11 +72,14 @@ class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerV
         importance_picker.dataSource = self
         importance_picker.delegate = self
         
-        initCoreData()
+        task_name_field.delegate = self
+        
+        //initCoreData()
         //loadData()
         
     }
     
+    //CORE DATA
     // Initialization of Core Data
     func initCoreData() {
         managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext    }
