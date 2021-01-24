@@ -8,6 +8,8 @@
 import UIKit
 import CoreData
 
+
+
 class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate{
     
     let identifiant = "itemCell"
@@ -19,8 +21,7 @@ class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerV
     
     var selected_date: Date = Date.init()
     
-    var managedObjectContext:NSManagedObjectContext?
-    var managedObjects:[NSManagedObject] = []
+
     
     @IBOutlet weak var task_name_label: UILabel!
     @IBOutlet weak var task_name_field: UITextField!
@@ -49,11 +50,12 @@ class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerV
 
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        task_name = task_name_field.text
         textField.resignFirstResponder()
         return true
     }
     
-    
+
     @IBAction func datePickerEditingEnded(_ sender: UIDatePicker) {
         selected_date = to_do_before.date
     }
@@ -70,9 +72,8 @@ class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerV
     
     @IBAction func addTask(_ sender: UIButton) {
         task_name = task_name_field.text
-        
-        
-    }
+        print(task_name!)
+        saveData(name: task_name!, importance: selected_importance, date_deathline: selected_date)    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,12 +86,15 @@ class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerV
         //initCoreData()
         //loadData()
         
+        
     }
     
     //CORE DATA
     // Initialization of Core Data
     func initCoreData() {
-        managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext    }
+        managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+    }
     
     // Load the data at application launch
     func loadData(){
@@ -112,13 +116,14 @@ class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerV
         let currentItem = NSManagedObject(entity: entity, insertInto: managedObjectContext!)
         // 3
         currentItem.setValue(name, forKeyPath: "name")
-        currentItem.setValue(importance, forKey: "importance")
-        currentItem.setValue(date_deathline, forKeyPath: "date_deathline")
+        currentItem.setValue(importance, forKeyPath: "importance")
+        currentItem.setValue(date_deathline, forKeyPath: "date_deadline")
 
         // 4
         do {
             try managedObjectContext!.save()
             managedObjects.append(currentItem)
+            print("DATA ADDED")
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
         }
