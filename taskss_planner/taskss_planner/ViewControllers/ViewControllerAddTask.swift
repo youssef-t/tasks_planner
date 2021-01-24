@@ -47,21 +47,29 @@ class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerV
         selected_importance = importance[row]
     }
 
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     
     @IBAction func datePickerEditingEnded(_ sender: UIDatePicker) {
         selected_date = to_do_before.date
     }
-    
+    /*
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        //task_name = task_name_field.text!
-        task_name_field.resignFirstResponder()
-        //self.view.endEditing(true)
+        textField.resignFirstResponder()
         return true
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        task_name = textField.text!
+    }
+    */
+    
     @IBAction func addTask(_ sender: UIButton) {
-        
+        task_name = task_name_field.text
         
         
     }

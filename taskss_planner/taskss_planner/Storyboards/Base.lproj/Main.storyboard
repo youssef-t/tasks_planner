@@ -255,10 +255,6 @@
                                                 <rect key="frame" x="92" y="0.0" width="302" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
-                                                <connections>
-                                                    <action selector="taskNameEditingEnded:" destination="kz1-dy-18z" eventType="editingDidEnd" id="Etu-Dk-omq"/>
-                                                    <action selector="task_name:" destination="kz1-dy-18z" eventType="editingDidEnd" id="zOo-cd-BHK"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                         <constraints>
