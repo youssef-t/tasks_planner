@@ -4,7 +4,6 @@ Descriptif et Fonctionnalités :
 	L’utilisateur peut ajouter les tâches et les supprimer. 
 	On ne quitte pas la view où on ajoute les tâches même si une tâche est insérée afin de permettre d’en ajouter rapidement. 
 	Pour supprimer une tâche, il suffit de faire un swip vers la gauche. 
-	
 	L’application implémente CoreData pour stocker les données (les supprimer aussi). Ainsi, les tâches sont enregistrées même en quittant l’application.
 
 Petites fonctionnalités implémentées :
