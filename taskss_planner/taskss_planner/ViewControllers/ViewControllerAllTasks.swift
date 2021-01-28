@@ -32,6 +32,12 @@ class ViewControllerAllTasks: UIViewController, UITableViewDataSource {
         let importance_core_data = currentItem.value(forKeyPath: "importance") as? String
         cell.importance.text = importance_core_data
         
+        let date_core_data = currentItem.value(forKeyPath: "date_deadline") as? Date
+        let date_formatter = DateFormatter()
+        date_formatter.dateFormat = "dd-MM-yyyy  HH:mm"
+        let date_string = date_formatter.string(from: date_core_data!)
+        cell.date.text = date_string
+        
         return cell
     }
         
