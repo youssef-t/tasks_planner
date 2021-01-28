@@ -38,14 +38,33 @@ class ViewControllerAllTasks: UIViewController, UITableViewDataSource, UITableVi
         let date_string = date_formatter.string(from: date_core_data!)
         cell.date.text = date_string
         
+        if cell.importance.text == "high" {
+            cell.backgroundColor = UIColor.red
+        }
+        else if cell.importance.text == "low" {
+            cell.backgroundColor = UIColor.green
+        }
+        else if cell.importance.text == "medium" {
+            cell.backgroundColor = UIColor.yellow
+        }
+        
+        
         return cell
     }
     
     //delete cell
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-                managedObjects.remove(at: indexPath.row)
-                tableView.deleteRows(at: [indexPath], with: .fade)
+            print("size managedObjects\(managedObjects.count)")
+            managedObjects.remove(at: indexPath.row)
+            do {
+                try managedObjectContext!.save()
+            } catch let error as NSError {
+                print("Could not save. \(error), \(error.userInfo)")
+            }
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            print("indexPath.row: \(indexPath.row)")
+            //deleteData(index: indexPath.row)
             } else if editingStyle == .insert {
                 // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
             }
@@ -80,6 +99,18 @@ class ViewControllerAllTasks: UIViewController, UITableViewDataSource, UITableVi
             print("Could not fetch. \(error), \(error.userInfo)")
         }    }
 
+    
+    func deleteData (index: Int) {
+        // Delete an item
+        print("size managedObjects\(managedObjects.count)")
+        managedObjectContext!.delete(managedObjects[index])
+        
+        do {
+            try managedObjectContext!.save()
+        } catch let error as NSError {
+            print("Could not save. \(error), \(error.userInfo)")
+        }
+    }
     /*
     // MARK: - Navigation
    
