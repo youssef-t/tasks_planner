@@ -73,7 +73,9 @@ class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerV
     @IBAction func addTask(_ sender: UIButton) {
         task_name = task_name_field.text
         print(task_name!)
-        saveData(name: task_name!, importance: selected_importance, date_deathline: selected_date)    }
+        saveData(name: task_name!, importance: selected_importance, date_deathline: selected_date)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,7 +120,7 @@ class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerV
         currentItem.setValue(name, forKeyPath: "name")
         currentItem.setValue(importance, forKeyPath: "importance")
         currentItem.setValue(date_deathline, forKeyPath: "date_deadline")
-		
+
         // 4
         do {
             try managedObjectContext!.save()
