@@ -119,7 +119,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" rowHeight="138" id="i06-TP-XDb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" rowHeight="138" id="i06-TP-XDb" customClass="taskTableViewCell" customModule="taskss_planner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="i06-TP-XDb" id="rIw-Tx-dSe">
@@ -253,7 +253,7 @@
                                     <constraint firstAttribute="height" constant="649" id="ZgA-Kr-Que"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" rowHeight="138" id="FfC-Pi-sbj">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="taskCell" rowHeight="138" id="FfC-Pi-sbj" customClass="taskTableViewCell" customModule="taskss_planner" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="138"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FfC-Pi-sbj" id="eLg-q7-ThR">
@@ -276,6 +276,9 @@
                                                         <constraint firstAttribute="width" constant="80" id="lR1-v2-Sbc"/>
                                                     </constraints>
                                                     <state key="normal" backgroundImage="xmark.bin.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="deleteClicked:" destination="FfC-Pi-sbj" eventType="touchUpInside" id="Fsh-Di-0ZS"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="importance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oj7-T9-pt9">
                                                     <rect key="frame" x="33" y="78" width="87" height="21"/>
@@ -300,6 +303,12 @@
                                                 <constraint firstItem="XBA-7u-Tm7" firstAttribute="top" secondItem="eLg-q7-ThR" secondAttribute="topMargin" id="trb-OI-pOz"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="button_delete" destination="EEG-16-hVm" id="gVi-hs-G4s"/>
+                                            <outlet property="date" destination="ymO-tY-8hc" id="7c0-j9-NfO"/>
+                                            <outlet property="importance" destination="oj7-T9-pt9" id="PLY-jx-CHU"/>
+                                            <outlet property="task_name" destination="XBA-7u-Tm7" id="MCU-sC-gZE"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -319,6 +328,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="vHq-AZ-WTg"/>
+                    <connections>
+                        <outlet property="allTasksTableView" destination="32p-At-Vb2" id="nO8-WT-gCa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RhP-5w-2Ge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -487,7 +499,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="sFP-6N-epd"/>
+        <segue reference="ohS-59-RKq"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="xmark.bin.fill" catalog="system" width="128" height="93"/>

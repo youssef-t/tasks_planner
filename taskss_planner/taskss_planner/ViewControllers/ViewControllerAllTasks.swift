@@ -9,6 +9,7 @@ import UIKit
 
 class ViewControllerAllTasks: UIViewController {
     
+    @IBOutlet weak var allTasksTableView: UITableView!
     
 
     override func viewDidLoad() {
