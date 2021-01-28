@@ -222,31 +222,19 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyw-tk-0U0" userLabel="delete">
-                                                    <rect key="frame" x="329" y="25.333333333333332" width="45" height="41.666666666666657"/>
-                                                    <color key="tintColor" systemColor="systemRedColor"/>
-                                                    <state key="normal" backgroundImage="trash.fill" catalog="system"/>
-                                                    <connections>
-                                                        <action selector="deletePressed:" destination="MDu-GQ-Oxy" eventType="touchUpInside" id="3xN-sy-xob"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TASK NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-R6-cDM" userLabel="task_name">
-                                                    <rect key="frame" x="30" y="21" width="344" height="29"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <rect key="frame" x="30" y="21" width="344" height="28.666666666666671"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="vyw-tk-0U0" firstAttribute="leading" secondItem="yNE-qP-3E2" secondAttribute="leadingMargin" constant="309" id="3XI-rs-hH7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6FB-YM-1qn" secondAttribute="trailing" constant="20" id="9EG-3X-5v7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="QII-IQ-e5m" secondAttribute="trailing" constant="220" id="BKx-9x-Ya9"/>
                                                 <constraint firstItem="QII-IQ-e5m" firstAttribute="leading" secondItem="yNE-qP-3E2" secondAttribute="leadingMargin" constant="25" id="DYE-Wx-wYI"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="6FB-YM-1qn" secondAttribute="bottom" constant="10" id="Eop-4E-Txs"/>
                                                 <constraint firstItem="ZFy-R6-cDM" firstAttribute="leading" secondItem="yNE-qP-3E2" secondAttribute="leadingMargin" constant="10" id="WNT-XW-k0V"/>
-                                                <constraint firstItem="6FB-YM-1qn" firstAttribute="top" secondItem="vyw-tk-0U0" secondAttribute="bottom" constant="11" id="idl-yM-ZfR"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="vyw-tk-0U0" secondAttribute="trailing" constant="20" id="jJU-j8-glO"/>
-                                                <constraint firstItem="vyw-tk-0U0" firstAttribute="top" secondItem="yNE-qP-3E2" secondAttribute="topMargin" constant="15" id="nh7-Lb-gpp"/>
                                                 <constraint firstItem="6FB-YM-1qn" firstAttribute="leading" secondItem="QII-IQ-e5m" secondAttribute="trailing" constant="30" id="qRI-Jz-pSj"/>
                                                 <constraint firstItem="ZFy-R6-cDM" firstAttribute="top" secondItem="yNE-qP-3E2" secondAttribute="topMargin" constant="10" id="sy3-6U-4DR"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="QII-IQ-e5m" secondAttribute="bottom" constant="10" id="tvo-ow-G06"/>
@@ -255,7 +243,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="date" destination="6FB-YM-1qn" id="aVe-5B-kFW"/>
-                                            <outlet property="delete_button" destination="vyw-tk-0U0" id="bed-Yf-uZF"/>
                                             <outlet property="importance" destination="QII-IQ-e5m" id="1DV-DJ-7TV"/>
                                             <outlet property="task_name" destination="ZFy-R6-cDM" id="M4i-ya-hfS"/>
                                         </connections>
@@ -452,7 +439,6 @@
         <segue reference="sFP-6N-epd"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="trash.fill" catalog="system" width="121" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -464,9 +450,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

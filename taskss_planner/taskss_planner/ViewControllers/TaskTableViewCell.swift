@@ -7,15 +7,16 @@
 
 import UIKit
 
+
 class TaskTableViewCell: UITableViewCell {
+    
 
     @IBOutlet weak var task_name: UILabel!
     @IBOutlet weak var importance: UILabel!
     @IBOutlet weak var date: UILabel!
-    @IBOutlet weak var delete_button: UIButton!
     
-    @IBAction func deletePressed(_ sender: UIButton) {
-    }
+
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()

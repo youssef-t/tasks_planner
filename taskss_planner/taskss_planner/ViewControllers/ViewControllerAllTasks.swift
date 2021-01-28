@@ -8,7 +8,7 @@
 import UIKit
 import CoreData
 
-class ViewControllerAllTasks: UIViewController, UITableViewDataSource {
+class ViewControllerAllTasks: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tasksTableView: UITableView!
     
@@ -40,61 +40,24 @@ class ViewControllerAllTasks: UIViewController, UITableViewDataSource {
         
         return cell
     }
-        
     
-    /*func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //les tasks enregistrés
-        return managedObjects.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = allTasksTableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
-        /*if managedObjects.count > 0 {
-            let row = indexPath.row
-            
-            if row%2 == 0{
-                cell.backgroundColor = UIColor.systemGray
+    //delete cell
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+                managedObjects.remove(at: indexPath.row)
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            } else if editingStyle == .insert {
+                // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
             }
-            else {
-                cell.backgroundColor = UIColor.white
-            }
-            let currentItem = managedObjects[row]
-            let task_name_core_data = currentItem.value(forKeyPath: "name") as? String
-            cell.task_name.text = task_name_core_data
-            
-            let date_core_data = currentItem.value(forKeyPath: "date_deadline") as? Date
-            let date_formatter = DateFormatter()
-            date_formatter.dateFormat = "dd-MM-yyyy"
-            let date_string = date_formatter.string(from: date_core_data!)
-            cell.date.text = "date !!!!"
-                  
-                        
-            let importance_core_data = currentItem.value(forKeyPath: "importance") as? String
-            cell.importance.text = importance_core_data
-            
-            return cell
- 
-        }
-        
-        //if there is not any data
-        cell.task_name.text = "No Data"
-        cell.date.text = "No data"
-        cell.importance.text = "No data"
-        */
-        
-        return cell
     }
-    */
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //loadData()
         tasksTableView.dataSource = self
-        
-        // Do any additional setup after loading the view.
-        
+        tasksTableView.delegate = self
+                
     }
 
     override func viewWillAppear(_ animated: Bool) {
