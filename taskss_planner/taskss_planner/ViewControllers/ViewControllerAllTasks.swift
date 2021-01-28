@@ -18,9 +18,23 @@ class ViewControllerAllTasks: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tasksTableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath) as! TaskTableViewCell
+        let row = indexPath.row
+        if row%2 == 0{
+            cell.backgroundColor = UIColor.systemGray4
+        }
+        else {
+            cell.backgroundColor = UIColor.white
+        }
+        let currentItem = managedObjects[row]
+        let task_name_core_data = currentItem.value(forKeyPath: "name") as? String
+        cell.task_name.text = task_name_core_data
+        
+        let importance_core_data = currentItem.value(forKeyPath: "importance") as? String
+        cell.importance.text = importance_core_data
+        
         return cell
     }
-    
+        
     
     /*func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //les tasks enregistrés
@@ -75,6 +89,10 @@ class ViewControllerAllTasks: UIViewController, UITableViewDataSource {
         
         // Do any additional setup after loading the view.
         
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        tasksTableView.reloadData()
     }
     
     //CORE DATA

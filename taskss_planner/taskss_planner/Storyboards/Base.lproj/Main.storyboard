@@ -196,53 +196,66 @@
                                 <color key="textColor" red="0.93215488589999995" green="1" blue="0.99835414919999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="32p-At-Vb2">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="32p-At-Vb2">
                                 <rect key="frame" x="0.0" y="145" width="414" height="649"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="649" id="ZgA-Kr-Que"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="116" id="MDu-GQ-Oxy" customClass="TaskTableViewCell" customModule="taskss_planner" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="116"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" rowHeight="120" id="MDu-GQ-Oxy" customClass="TaskTableViewCell" customModule="taskss_planner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="MDu-GQ-Oxy" id="yNE-qP-3E2">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMPORTANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QII-IQ-e5m" userLabel="importance">
+                                                    <rect key="frame" x="45" y="78" width="129" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6FB-YM-1qn" userLabel="date">
+                                                    <rect key="frame" x="204" y="78.666666666666671" width="170" height="20.333333333333329"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyw-tk-0U0" userLabel="delete">
+                                                    <rect key="frame" x="329" y="25.333333333333332" width="45" height="41.666666666666657"/>
+                                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                                    <state key="normal" backgroundImage="trash.fill" catalog="system"/>
+                                                    <connections>
+                                                        <action selector="deletePressed:" destination="MDu-GQ-Oxy" eventType="touchUpInside" id="3xN-sy-xob"/>
+                                                    </connections>
+                                                </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TASK NAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-R6-cDM" userLabel="task_name">
                                                     <rect key="frame" x="30" y="21" width="344" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="IMPORTANCE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QII-IQ-e5m" userLabel="importance">
-                                                    <rect key="frame" x="45" y="74" width="129" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DATE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6FB-YM-1qn" userLabel="date">
-                                                    <rect key="frame" x="204" y="74.666666666666671" width="170" height="20.333333333333329"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="vyw-tk-0U0" firstAttribute="leading" secondItem="yNE-qP-3E2" secondAttribute="leadingMargin" constant="309" id="3XI-rs-hH7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="6FB-YM-1qn" secondAttribute="trailing" constant="20" id="9EG-3X-5v7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="QII-IQ-e5m" secondAttribute="trailing" constant="220" id="BKx-9x-Ya9"/>
                                                 <constraint firstItem="QII-IQ-e5m" firstAttribute="leading" secondItem="yNE-qP-3E2" secondAttribute="leadingMargin" constant="25" id="DYE-Wx-wYI"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="6FB-YM-1qn" secondAttribute="bottom" constant="10" id="Eop-4E-Txs"/>
                                                 <constraint firstItem="ZFy-R6-cDM" firstAttribute="leading" secondItem="yNE-qP-3E2" secondAttribute="leadingMargin" constant="10" id="WNT-XW-k0V"/>
-                                                <constraint firstItem="ZFy-R6-cDM" firstAttribute="top" secondItem="yNE-qP-3E2" secondAttribute="topMargin" constant="10" id="iec-vG-7ir"/>
+                                                <constraint firstItem="6FB-YM-1qn" firstAttribute="top" secondItem="vyw-tk-0U0" secondAttribute="bottom" constant="11" id="idl-yM-ZfR"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="vyw-tk-0U0" secondAttribute="trailing" constant="20" id="jJU-j8-glO"/>
+                                                <constraint firstItem="vyw-tk-0U0" firstAttribute="top" secondItem="yNE-qP-3E2" secondAttribute="topMargin" constant="15" id="nh7-Lb-gpp"/>
                                                 <constraint firstItem="6FB-YM-1qn" firstAttribute="leading" secondItem="QII-IQ-e5m" secondAttribute="trailing" constant="30" id="qRI-Jz-pSj"/>
+                                                <constraint firstItem="ZFy-R6-cDM" firstAttribute="top" secondItem="yNE-qP-3E2" secondAttribute="topMargin" constant="10" id="sy3-6U-4DR"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="QII-IQ-e5m" secondAttribute="bottom" constant="10" id="tvo-ow-G06"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="ZFy-R6-cDM" secondAttribute="trailing" constant="20" id="yNd-B5-IV8"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="date" destination="6FB-YM-1qn" id="aVe-5B-kFW"/>
+                                            <outlet property="delete_button" destination="vyw-tk-0U0" id="bed-Yf-uZF"/>
                                             <outlet property="importance" destination="QII-IQ-e5m" id="1DV-DJ-7TV"/>
                                             <outlet property="task_name" destination="ZFy-R6-cDM" id="M4i-ya-hfS"/>
                                         </connections>
@@ -439,6 +452,7 @@
         <segue reference="sFP-6N-epd"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="trash.fill" catalog="system" width="121" height="128"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -450,6 +464,9 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
