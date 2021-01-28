@@ -1,6 +1,6 @@
 # tasks_planner
 Descriptif et Fonctionnalités :
-	L’application est un gestionnaire de planning. Elle permet à l’utilisateur d’insérer des tâches à faire. Il fournit le nom de la tâche, sa date butoir (avec l’heure et la minute) ainsi que le degré d’importance (low, medium et high)
+	L’application est un gestionnaire de planning. Elle permet à l’utilisateur d’insérer des tâches à faire. Il fournit le nom de la tâche, sa date butoir (avec l’heure et la 	minute) ainsi que le degré d’importance (low, medium et high)
 	L’utilisateur peut ajouter les tâches et les supprimer. 
 	On ne quitte pas la view où on ajoute les tâches même si une tâche est insérée afin de permettre d’en ajouter rapidement. 
 	Pour supprimer une tâche, il suffit de faire un swip vers la gauche. 
