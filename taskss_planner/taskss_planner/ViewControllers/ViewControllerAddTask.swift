@@ -118,7 +118,7 @@ class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerV
         currentItem.setValue(name, forKeyPath: "name")
         currentItem.setValue(importance, forKeyPath: "importance")
         currentItem.setValue(date_deathline, forKeyPath: "date_deadline")
-
+		
         // 4
         do {
             try managedObjectContext!.save()
