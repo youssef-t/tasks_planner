@@ -25,29 +25,32 @@ class ViewControllerAllTasks: UIViewController, UITableViewDataSource, UITableVi
         else {
             cell.backgroundColor = UIColor.white
         }
-        let currentItem = managedObjects[row]
-        let task_name_core_data = currentItem.value(forKeyPath: "name") as? String
-        cell.task_name.text = task_name_core_data
-        
-        let importance_core_data = currentItem.value(forKeyPath: "importance") as? String
-        cell.importance.text = importance_core_data
-        
-        let date_core_data = currentItem.value(forKeyPath: "date_deadline") as? Date
-        let date_formatter = DateFormatter()
-        date_formatter.dateFormat = "dd-MM-yyyy  HH:mm"
-        let date_string = date_formatter.string(from: date_core_data!)
-        cell.date.text = date_string
-        
-        if cell.importance.text == "high" {
-            cell.backgroundColor = UIColor.red
+        if managedObjects.count > 0 {
+            let currentItem = managedObjects[row]
+            let task_name_core_data = currentItem.value(forKeyPath: "name") as? String
+            cell.task_name.text = task_name_core_data
+            
+            let importance_core_data = currentItem.value(forKeyPath: "importance") as? String
+            cell.importance.text = importance_core_data
+            
+            let date_core_data = currentItem.value(forKeyPath: "date_deadline") as? Date
+            let date_formatter = DateFormatter()
+            date_formatter.dateFormat = "dd-MM-yyyy  HH:mm"
+            if date_core_data != nil{
+                let date_string = date_formatter.string(from: date_core_data!)
+                cell.date.text = date_string
+            }
+            
+            if cell.importance.text == "high" {
+                cell.backgroundColor = UIColor.red
+            }
+            else if cell.importance.text == "low" {
+                cell.backgroundColor = UIColor.green
+            }
+            else if cell.importance.text == "medium" {
+                cell.backgroundColor = UIColor.yellow
+            }
         }
-        else if cell.importance.text == "low" {
-            cell.backgroundColor = UIColor.green
-        }
-        else if cell.importance.text == "medium" {
-            cell.backgroundColor = UIColor.yellow
-        }
-        
         
         return cell
     }
@@ -55,19 +58,25 @@ class ViewControllerAllTasks: UIViewController, UITableViewDataSource, UITableVi
     //delete cell
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            //tableView.deleteRows(at: [indexPath], with: .fade)
+
             print("size managedObjects\(managedObjects.count)")
+            managedObjectContext!.delete(managedObjects[indexPath.row])
             managedObjects.remove(at: indexPath.row)
+            deleteData(index: indexPath.row)
             do {
                 try managedObjectContext!.save()
             } catch let error as NSError {
                 print("Could not save. \(error), \(error.userInfo)")
             }
-            tableView.deleteRows(at: [indexPath], with: .fade)
             print("indexPath.row: \(indexPath.row)")
+            tableView.reloadData()
+            //tableView.deleteRows(at: [indexPath], with: .fade)
             //deleteData(index: indexPath.row)
             } else if editingStyle == .insert {
                 // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
             }
+        
     }
     
     
@@ -103,7 +112,9 @@ class ViewControllerAllTasks: UIViewController, UITableViewDataSource, UITableVi
     func deleteData (index: Int) {
         // Delete an item
         print("size managedObjects\(managedObjects.count)")
-        managedObjectContext!.delete(managedObjects[index])
+        if index > managedObjects.count {
+            managedObjectContext!.delete(managedObjects[index])
+        }
         
         do {
             try managedObjectContext!.save()

@@ -39,7 +39,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         initCoreData()
         loadData()
-        
+        print(managedObjects.count)
+        //(UIApplication.shared.delegate as! AppDelegate).restrictRotation = .all
+
     }
     
     @IBOutlet weak var check_tasks: UIButton!

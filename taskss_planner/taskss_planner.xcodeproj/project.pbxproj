@@ -17,7 +17,6 @@
 		40662BFA25C3128F00D3DB21 /* TaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40662BF925C3128F00D3DB21 /* TaskTableViewCell.swift */; };
 		406E8F8925B82A430025FC38 /* ViewControllerAllTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E8F8825B82A430025FC38 /* ViewControllerAllTasks.swift */; };
 		406E8F8C25B82A620025FC38 /* ViewControllerAddTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E8F8B25B82A620025FC38 /* ViewControllerAddTask.swift */; };
-		406E8F8F25B82A8B0025FC38 /* ViewControllerTodayTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 406E8F8E25B82A8B0025FC38 /* ViewControllerTodayTasks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +32,6 @@
 		40662BF925C3128F00D3DB21 /* TaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableViewCell.swift; sourceTree = "<group>"; };
 		406E8F8825B82A430025FC38 /* ViewControllerAllTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAllTasks.swift; sourceTree = "<group>"; };
 		406E8F8B25B82A620025FC38 /* ViewControllerAddTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerAddTask.swift; sourceTree = "<group>"; };
-		406E8F8E25B82A8B0025FC38 /* ViewControllerTodayTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTodayTasks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +82,6 @@
 				406E8F8825B82A430025FC38 /* ViewControllerAllTasks.swift */,
 				40662BF925C3128F00D3DB21 /* TaskTableViewCell.swift */,
 				406E8F8B25B82A620025FC38 /* ViewControllerAddTask.swift */,
-				406E8F8E25B82A8B0025FC38 /* ViewControllerTodayTasks.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -171,7 +168,6 @@
 				40662BFA25C3128F00D3DB21 /* TaskTableViewCell.swift in Sources */,
 				400555B925AC66190063AFAB /* ViewController.swift in Sources */,
 				400555B525AC66190063AFAB /* AppDelegate.swift in Sources */,
-				406E8F8F25B82A8B0025FC38 /* ViewControllerTodayTasks.swift in Sources */,
 				4061214425BD0ED100E9EDE7 /* taskss_planner.xcdatamodeld in Sources */,
 				400555B725AC66190063AFAB /* SceneDelegate.swift in Sources */,
 				406E8F8925B82A430025FC38 /* ViewControllerAllTasks.swift in Sources */,

@@ -84,6 +84,7 @@ class ViewControllerAddTask: UIViewController, UIPickerViewDataSource, UIPickerV
         importance_picker.delegate = self
         
         task_name_field.delegate = self
+        //(UIApplication.shared.delegate as! AppDelegate).restrictRotation = .all
         
         //initCoreData()
         //loadData()
